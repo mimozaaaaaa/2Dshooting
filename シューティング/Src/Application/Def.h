@@ -16,3 +16,4 @@
 #define RIGHT key(VK_RIGHT) & 0x8000
 #define ENTER key(VK_RETURN) & 0x8000
 
+#define test int a
