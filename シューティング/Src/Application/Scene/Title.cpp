@@ -8,6 +8,7 @@ void Title::Update()
 void Title::Draw()
 {
 	DrawTitle();
+	DrawUI();
 }
 
 void Title::Init()
@@ -19,7 +20,8 @@ void Title::Init()
 void Title::InitClip()
 {
 	backGround.Clip = { 0,0,1280,720 };
-	title.Clip = { 0,0,896,597 };
+	title.Clip = { 0,0,900,306 };
+	button.Clip = { 0,0,428,500 };
 	start.Clip = { 0,0,896,597 };
 }
 
@@ -27,7 +29,8 @@ void Title::InitTex()
 {
 	backGround.Tex.Load("Texture/Title/backGround.png");
 	title.Tex.Load("Texture/Title/title.png");
-	title.Tex.Load("Texture/Title/start.png");
+	button.Tex.Load("Texture/Title/button.png");
+	start.Tex.Load("Texture/Title/start.png");
 }
 
 void Title::DrawTitle()
@@ -39,6 +42,7 @@ void Title::DrawTitle()
 
 void Title::DrawUI()
 {
+	SHADER.m_spriteShader.DrawTex(&button.Tex, button.Clip, 1.0f);
 	SHADER.m_spriteShader.DrawTex(&start.Tex, start.Clip, 1.0f);
 	SHADER.m_spriteShader.DrawTex(&tutorial.Tex, tutorial.Clip, 1.0f);
 	SHADER.m_spriteShader.DrawTex(&quit.Tex, quit.Clip, 1.0f);

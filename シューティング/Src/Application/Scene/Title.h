@@ -37,6 +37,7 @@ private:
 	Photo selecter;
 	Photo frame;
 //肉付け//
+	Photo button;
 	Photo start;
 	Photo tutorial;
 	Photo quit;
