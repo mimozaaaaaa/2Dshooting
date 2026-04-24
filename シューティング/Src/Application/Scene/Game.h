@@ -1,5 +1,6 @@
 #pragma once
 #include"SceneBase.h"
+#include "../TextureManager.h"
 #include"../Def.h"
 
 class Game :public SceneBase
@@ -14,6 +15,7 @@ public:
 
 //Update//
 	void UpdateMat();
+	void UpdateBackGround();
 
 //Init//
 	void InitTex();
@@ -25,14 +27,27 @@ public:
 //else
 	void PlayerMove();	//プレイヤーの移動
 	void PlayerLimit();
+	void BackGroundLimit();
 
 private:
 
 	Math::Vector2 playerPos;
 	Math::Vector2 playerAccPos;
 
-	KdTexture playerTex;
+	float backGround1Y;
+	float backGround2Y;
+	float backGroundAccY;
+
+	KdTexture *playerTex;
+	KdTexture *backGroundTex;
 
 	Math::Matrix playerMat;
+	Math::Matrix backGround1Mat;
+	Math::Matrix backGround2Mat;
+
+	
+
+	//マジックナンバーを消すため//
+	const float backHigh = 1536;
 
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include <unordered_map>
+#include <fstream>
 
 using namespace std;
 
@@ -13,6 +14,19 @@ public:
 	{
 		static TextureManager Instance;
 		return Instance;
+	}
+
+	void ReadFile(const string& a_filename)
+	{
+		//括弧内はファイル名を書く
+		ifstream ifs(a_filename);
+
+		string name, path;
+
+		while (getline(ifs, name, ' ') && getline(ifs, path))
+		{
+			LoadTex(name, path);
+		}
 	}
 
 	void LoadTex(const string &name ,const string &path )

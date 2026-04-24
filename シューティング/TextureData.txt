@@ -1,0 +1,2 @@
+Player Texture/Game/player/player.png
+BackGround Texture/Game/backGround.png
