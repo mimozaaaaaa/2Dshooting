@@ -20,6 +20,7 @@ public:
 
 //Update//
 	void UpdateMat();
+	void UpdateTitle();
 
 //Init//
 	void InitClip();
@@ -42,6 +43,14 @@ private:
 	Photo tutorial;
 	Photo quit;
 	Photo setting;
+	
+	float titleY;
+	float titleMove;
+
+//マジックナンバー対策//
+	const float titleMax = 170;
+	const float titleMin = 160;
+
 	
 
 

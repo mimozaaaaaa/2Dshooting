@@ -26,6 +26,7 @@ public:
 
 //else
 	void PlayerMove();	//プレイヤーの移動
+	void PlayerAct();
 	void PlayerLimit();
 	void BackGroundLimit();
 
@@ -48,6 +49,6 @@ private:
 	
 
 	//マジックナンバーを消すため//
-	const float backHigh = 1536;
+	const float backGroundHigh = 1536;
 
 };

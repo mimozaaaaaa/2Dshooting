@@ -17,7 +17,7 @@ void Game::Init()
 {
 	TEXTUREMANAGER.ReadFile("TextureData.txt");
 	backGround1Y = 0;
-	backGround2Y = backHigh;;
+	backGround2Y = backGroundHigh;
 	backGroundAccY = 5;
 	InitTex();
 }
@@ -52,9 +52,9 @@ void Game::DrawPlayer()
 void Game::DrawBackGround()
 {
 	SHADER.m_spriteShader.SetMatrix(backGround1Mat);
-	SHADER.m_spriteShader.DrawTex(backGroundTex, 0, 0, 1024, 1536);
+	SHADER.m_spriteShader.DrawTex(backGroundTex, 0, 0, 1024, backGroundHigh);
 	SHADER.m_spriteShader.SetMatrix(backGround2Mat);
-	SHADER.m_spriteShader.DrawTex(backGroundTex, 0, 0, 1024, 1536);
+	SHADER.m_spriteShader.DrawTex(backGroundTex, 0, 0, 1024, backGroundHigh);
 }
 
 void Game::PlayerMove()
@@ -72,6 +72,11 @@ void Game::PlayerMove()
 	PlayerLimit();
 }
 
+void Game::PlayerAct()
+{
+	if (SPACE);
+}
+
 void Game::PlayerLimit()
 {
 	if (SCREEN_MAX_X < playerPos.x)playerPos.x = SCREEN_MAX_X;
@@ -82,7 +87,7 @@ void Game::PlayerLimit()
 
 void Game::BackGroundLimit()
 {
-	if (backGround1Y < -backHigh)backGround1Y = backHigh;
-	if (backGround2Y < -backHigh)backGround2Y = backHigh;
+	if (backGround1Y < -backGroundHigh)backGround1Y = backGroundHigh;
+	if (backGround2Y < -backGroundHigh)backGround2Y = backGroundHigh;
 
 }
