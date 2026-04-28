@@ -1,32 +1,40 @@
 #pragma once
 
+#include"TextureManager.h"
+#include"Def.h"
+
 class Player
 {
 public:
-	Player();
-	~Player();
+	Player(){}
+	~Player(){}
 	
 	void Update();
 	void Init();
 	void Draw();
 
+//Update//
+	void UpdateMat();
 
+//Init//
+	void InitTex();
 
-	//プレイヤーの動き//
+//Draw//
+	void DrawPlayer();
+
+//else//
+	//プレイヤーの動き
 	void PlayerMove();
+	void PlayerAct();
+	void PlayerLimit();
 
 private:
 
-	Math::Vector2 pos;
-	Math::Vector2 addPos;
+	Math::Vector2 playerPos;
+	Math::Vector2 playerAccPos;
+
+	KdTexture* playerTex;
+
+	Math::Matrix playerMat;
 
 };
-
-Player::Player()
-{
-}
-
-Player::~Player()
-{
-}
-

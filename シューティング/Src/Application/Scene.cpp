@@ -9,15 +9,15 @@ void Scene::Draw2D()
 
 void Scene::Update()
 {
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	if (key(VK_SHIFT)&0x8000)
 	{
 		SCENEMANAGER.ChangeScene(new Title());
 	}
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (key(VK_BACK)&0x8000)
 	{
 		SCENEMANAGER.ChangeScene(new Setting());
 	}
-	if (GetAsyncKeyState(VK_UP) & 0x8000)
+	if (ENTER)
 	{
 		SCENEMANAGER.ChangeScene(new Game());
 	}
