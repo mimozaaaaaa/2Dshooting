@@ -1,5 +1,6 @@
 #pragma once
 #include"SceneBase.h"
+#include"../Def.h"
 
 struct Photo
 {
@@ -21,6 +22,8 @@ public:
 //Update//
 	void UpdateMat();
 	void UpdateTitle();
+	void UpdateSelecter();
+	void UpdateTimer();
 
 //Init//
 	void InitClip();
@@ -29,6 +32,10 @@ public:
 //Draw//
 	void DrawTitle();
 	void DrawUI();
+	void DrawStart();
+	void DrawTutorial();
+	void DrawOption();
+	void DrawQuit();
 
 private:
 
@@ -38,20 +45,34 @@ private:
 	Photo selecter;
 	Photo frame;
 //肉付け//
-	Photo button;
 	Photo start;
 	Photo tutorial;
 	Photo quit;
-	Photo setting;
+	Photo option;
+//光ってる//
+	Photo start_F;
+	Photo tutorial_F;
+	Photo quit_F;
+	Photo option_F;
 	
 	float titleY;
 	float titleMove;
 
-//マジックナンバー対策//
-	const float titleMax = 170;
-	const float titleMin = 160;
+	float selecterY;
 
-	
+	int time;
+
+	Math::Rectangle buttonClip;
+	Math::Rectangle buttonClip_F;
+
+//マジックナンバー対策//
+	const float titleMax = 210;
+	const float titleMin = 200;
+
+	const float startY = 35;
+	const float tutorialY = -65;
+	const float optionY = -165;
+	const float quitY = -265;
 
 
 };

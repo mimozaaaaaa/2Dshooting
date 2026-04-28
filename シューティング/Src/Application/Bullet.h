@@ -1,14 +1,11 @@
 #pragma once
 
-#include"../TextureManager.h"
-#include"../Def.h"
-
-class Enemy1
+class Bullet
 {
 public:
-	Enemy1(){}
-	~Enemy1(){}
-
+	Bullet(){}
+	~Bullet(){}
+	
 	void Update();
 	void Init();
 	void Draw();
@@ -16,7 +13,6 @@ public:
 //Update//
 
 //Init//
-	void InitTex();
 
 //Draw//
 
