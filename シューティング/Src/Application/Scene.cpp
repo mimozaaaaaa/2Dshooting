@@ -17,10 +17,7 @@ void Scene::Update()
 	{
 		SCENEMANAGER.ChangeScene(new Setting());
 	}
-	if (ENTER)
-	{
-		SCENEMANAGER.ChangeScene(new Game());
-	}
+	
 
 	SCENEMANAGER.Update();
 	

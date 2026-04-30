@@ -1,6 +1,7 @@
 #pragma once
 #include"SceneBase.h"
 #include"../Def.h"
+#include"../SceneManeger.h"
 
 struct Photo
 {
@@ -24,6 +25,8 @@ public:
 	void UpdateTitle();
 	void UpdateSelecter();
 	void UpdateTimer();
+	void UpdateNextScene();
+	void UpdateQuit();
 
 //Init//
 	void InitClip();
@@ -58,9 +61,11 @@ private:
 	float titleY;
 	float titleMove;
 
-	float selecterY;
+	Math::Vector2 selecterPos;
 
 	int time;
+
+	bool quitFlag;
 
 	Math::Rectangle buttonClip;
 	Math::Rectangle buttonClip_F;
@@ -73,6 +78,9 @@ private:
 	const float tutorialY = -65;
 	const float optionY = -165;
 	const float quitY = -265;
+
+	const float okX = -100;
+	const float noX = 100;
 
 
 };

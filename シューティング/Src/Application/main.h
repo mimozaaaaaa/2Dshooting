@@ -12,7 +12,7 @@ public:
 
 	// アプリケーション実行
 	void Execute();
-
+	
 	// アプリケーション終了
 	void End() { m_endFlag = true; }
 
