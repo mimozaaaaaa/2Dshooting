@@ -27,6 +27,7 @@ public:
 	void UpdateTimer();
 	void UpdateNextScene();
 	void UpdateQuit();
+	void UpdateAnimeSQ();
 
 //Init//
 	void InitClip();
@@ -39,6 +40,8 @@ public:
 	void DrawTutorial();
 	void DrawOption();
 	void DrawQuit();
+	void DrawYesNo();
+	void DrawAnimeSQ();
 
 private:
 
@@ -47,11 +50,19 @@ private:
 	Photo title;
 	Photo selecter;
 	Photo frame;
+	Photo quitFrame;
+	Photo white1;
+	Photo white2;
+	Photo white3;
+	Photo white4;
+	
 //肉付け//
 	Photo start;
 	Photo tutorial;
 	Photo quit;
 	Photo option;
+	Photo yes;
+	Photo No;
 //光ってる//
 	Photo start_F;
 	Photo tutorial_F;
@@ -70,17 +81,20 @@ private:
 	Math::Rectangle buttonClip;
 	Math::Rectangle buttonClip_F;
 
+	float white1Y;
+	float white2Y;
+	float white3X;
+	float white4X;
+
 //マジックナンバー対策//
-	const float titleMax = 210;
-	const float titleMin = 200;
+	const float titleMax = 210.0f;
+	const float titleMin = 200.0f;
 
-	const float startY = 35;
-	const float tutorialY = -65;
-	const float optionY = -165;
-	const float quitY = -265;
+	const float startY = 35.0f;
+	const float tutorialY = -65.0f;
+	const float optionY = -165.0f;
+	const float quitY = -265.0f;
 
-	const float okX = -100;
-	const float noX = 100;
-
-
+	const float okX = -100.0f;
+	const float noX = 100.0f;
 };

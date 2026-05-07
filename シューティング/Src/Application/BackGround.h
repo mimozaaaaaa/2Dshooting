@@ -36,6 +36,6 @@ private:
 	Math::Matrix backGround2Mat;
 	
 	//マジックナンバーを消すため//
-	const float backGroundHigh = 1536;
+	const float backGroundHigh = 1920;
 
 };

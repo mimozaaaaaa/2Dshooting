@@ -1,2 +1,8 @@
-Player Texture/Game/player/player.png
+Player Texture/Game/Player/player.png
 BackGround Texture/Game/backGround.png
+HP Texture/Game/UI/HP.png
+GRAZE Texture/Game/UI/GRAZE.png
+HIT Texture/Game/UI/HIT.png
+SPD Texture/Game/UI/SPD.png
+Blank Texture/Game/UI/blank.png
+NormalBullet Texture/Game/Bullet/playerBullet.png

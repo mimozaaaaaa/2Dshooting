@@ -9,6 +9,7 @@
 #include"../BackGround.h"
 #include"../Player.h"
 #include"../Bullet.h"
+#include"../UI.h"
 
 class Game :public SceneBase
 {
@@ -25,4 +26,5 @@ private:
 	BackGround backGround;
 	Player player;
 	Bullet bullet;
+	UI ui;
 };
