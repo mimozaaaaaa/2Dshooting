@@ -31,7 +31,8 @@ public:
 	void PlayerLimit();
 	void PlayerKey();
 
-	void SummonBullet();
+	void SummonNormalBullet();
+	void SummonHomingBullet();
 
 	int GetPlayerSPD()const
 	{
@@ -42,6 +43,11 @@ public:
 	int GetBulletCount()const { return normalBulletCount; }
 
 	void SetBullet(Bullet* _bullet) { bullet = _bullet; }
+
+	int GetPlayerDamege()const { return dameage; }
+
+	void SetPlayerDamege(int _dameage) { dameage = _dameage; }
+	
 
 private:
 	Bullet* bullet;
@@ -56,7 +62,13 @@ private:
 	int playerSPD = 1;
 
 	int normalBulletCount = 0;
+	int homingBulletCount = 0;
 
 	int time;
+
+	int dameage = 0;
+
+	bool reflectFlag = false;
+	bool homingFlag = false;
 
 };

@@ -10,6 +10,8 @@
 #include"../Player.h"
 #include"../Bullet.h"
 #include"../UI.h"
+#include"../Enemy/Enemy1.h"
+#include"../Impact.h"
 
 class Game :public SceneBase
 {
@@ -27,4 +29,6 @@ private:
 	Player player;
 	Bullet bullet;
 	UI ui;
+	Enemy1 enemy1;
+	Impact impact;
 };

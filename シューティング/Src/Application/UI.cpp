@@ -1,5 +1,7 @@
 #include "UI.h"
 
+#include"Player.h"
+
 void UI::Update()
 {
 	UpdateMat();
@@ -8,7 +10,6 @@ void UI::Update()
 	UpdateBlank_HIT();
 	UpdateBlank_GRAZE();
 	UpdateBlank_SPD();
-
 }
 
 void UI::Init()
@@ -29,6 +30,7 @@ void UI::Draw()
 	SHADER.m_spriteShader.DrawTex(spd.Tex, 0, 0, 338,46 );
 
 	DrawBlank_SPD(player->GetPlayerSPD());
+	DrawBlank_HP(player->GetPlayerDamege());
 
 }
 
@@ -50,9 +52,9 @@ void UI::InitTex()
 	blankTex = TEXTUREMANAGER.GetTex("Blank");
 }
 
-void UI::DrawBlank_HP(int hp)
+void UI::DrawBlank_HP(int dameage)
 {
-	for (int j = 0;j < hp;j++)
+	for (int j = 0;j < dameage;j++)
 	{
 		SHADER.m_spriteShader.SetMatrix(blankMat[HP][j]);
 		SHADER.m_spriteShader.DrawTex(blankTex, 0, 0, 54, 25);

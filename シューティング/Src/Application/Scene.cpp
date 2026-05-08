@@ -9,10 +9,7 @@ void Scene::Draw2D()
 
 void Scene::Update()
 {
-	if (key(VK_SHIFT)&0x8000)
-	{
-		SCENEMANAGER.ChangeScene(new Title());
-	}
+	
 	if (key(VK_BACK)&0x8000)
 	{
 		SCENEMANAGER.ChangeScene(new Setting());

@@ -2,7 +2,7 @@
 
 #include"TextureManager.h"
 
-#include"Player.h"
+class Player;
 
 struct UITex
 {

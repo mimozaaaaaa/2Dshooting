@@ -59,11 +59,18 @@ void Player::PlayerMove()
 	if (LEFT)playerPos.x -= 3.0f;
 
 	PlayerKey();
-
-	if (SPACE && time == 0)
+	if (time == 0)
 	{
-		SummonBullet();
-		time = 5;
+		if (SPACE)
+		{
+			SummonNormalBullet();
+			time = 5;
+		}
+		if(key('V') & 0x8000)
+		{
+			SummonHomingBullet();
+			time = 5;
+		}
 	}
 	PlayerLimit();
 }
@@ -91,10 +98,17 @@ void Player::PlayerKey()
 		
 }
 
-void Player::SummonBullet()
+void Player::SummonNormalBullet()
 {
-	bullet->BulletSpawn(playerPos, normalBulletCount);
+	bullet->NormalBulletSpawn(playerPos, normalBulletCount);
 	normalBulletCount++;
 	if (normalBulletCount > 100)normalBulletCount = 0;
+}
+
+void Player::SummonHomingBullet()
+{
+	bullet->HomingBulletSpawn(playerPos, homingBulletCount);
+	homingBulletCount++;
+	if (homingBulletCount > 100)homingBulletCount = 0;
 }
 

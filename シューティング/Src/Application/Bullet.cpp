@@ -10,6 +10,8 @@ void Bullet::Update()
 {   
 
 	NormalBulletUpdate();
+	HomingBulletUpdate();
+	EnemyBulletUpdate();
 
     UpdateMat();
 
@@ -29,7 +31,7 @@ void Bullet::NormalBulletUpdate()
     {
         if (!normalBullet[i].Flag)continue;
         normalBullet[i].Pos += accelerationMat_Normal;
-        accelerationMat_Normal = { 0.0f, 5.0f };
+        accelerationMat_Normal = { 0.0f, 7.0f };
     }
 }
 
@@ -68,30 +70,34 @@ void Bullet::BreakFlag()
 {
 	for (int i = 0;i < 100;i++)
     {
-		if (normalBullet[i].Pos.y > 400)normalBullet[i].Flag = false;
-		if (homingBullet[i].Pos.y > 400)homingBullet[i].Flag = false;
+		if (normalBullet[i].Pos.y > SCREEN_MAX_Y+NormalBulletRadius)normalBullet[i].Flag = false;
+		if (homingBullet[i].Pos.y > SCREEN_MAX_Y+NormalBulletRadius)homingBullet[i].Flag = false;
 		if (enemyBullet[i].Pos.y < -400)enemyBullet[i].Flag = false;
     }
 }
 
-void Bullet::BulletSpawn(const Math::Vector2& a_spawnPos,int count)
+void Bullet::NormalBulletSpawn(const Math::Vector2& a_spawnPos,int count)
 {
     normalBullet[count].Mat = Math::Matrix::CreateTranslation(a_spawnPos.x, a_spawnPos.y, 0.0f);
     normalBullet[count].Pos = a_spawnPos;
     normalBullet[count].Flag = true;
 }
 
+void Bullet::HomingBulletSpawn(const Math::Vector2& a_spawnPos, int count)
+{
+	homingBullet[count].Mat = Math::Matrix::CreateTranslation(a_spawnPos.x, a_spawnPos.y, 0.0f);
+	homingBullet[count].Pos = a_spawnPos;
+	homingBullet[count].Flag = true;
+}
+
 void Bullet::UpdateMat()
 {
 	for (int i = 0;i < 100;i++)
     {
-        if (!normalBullet[i].Flag)continue;
-        normalBullet[i].Mat = Math::Matrix::CreateTranslation(normalBullet[i].Pos.x, normalBullet[i].Pos.y, 0.0f);
+        if (normalBullet[i].Flag)normalBullet[i].Mat = Math::Matrix::CreateTranslation(normalBullet[i].Pos.x, normalBullet[i].Pos.y, 0.0f);
     
-        if (!homingBullet[i].Flag)continue;
-        homingBullet[i].Mat = Math::Matrix::CreateTranslation(homingBullet[i].Pos.x, homingBullet[i].Pos.y, 0.0f);
+        if (homingBullet[i].Flag)homingBullet[i].Mat = Math::Matrix::CreateTranslation(homingBullet[i].Pos.x, homingBullet[i].Pos.y, 0.0f);
     
-        if (!enemyBullet[i].Flag)continue;
-        enemyBullet[i].Mat = Math::Matrix::CreateTranslation(enemyBullet[i].Pos.x, enemyBullet[i].Pos.y, 0.0f);
+        if (enemyBullet[i].Flag)enemyBullet[i].Mat = Math::Matrix::CreateTranslation(enemyBullet[i].Pos.x, enemyBullet[i].Pos.y, 0.0f);
     }
 }

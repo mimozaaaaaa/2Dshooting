@@ -1,6 +1,7 @@
 #pragma once
 
 #include"TextureManager.h"
+#include"Def.h"
 
 struct SomeBullet
 {
@@ -21,9 +22,6 @@ public:
 	void Init();
 	void Draw();
 
-	//表示処理
-	void Activate(const Math::Vector2& a_spawnPos);
-
 //Update//
 	void NormalBulletUpdate();
 	void HomingBulletUpdate();
@@ -42,7 +40,14 @@ public:
 
 //else
 	void BreakFlag();
-	void BulletSpawn(const Math::Vector2& a_spawnPos, int count);
+	void NormalBulletSpawn(const Math::Vector2& a_spawnPos, int count);
+	void HomingBulletSpawn(const Math::Vector2& a_spawnPos, int count);
+	void SetFlag(int num, bool flag) { normalBullet[num].Flag = flag; }
+	Math::Vector2 GetPos(int num)const { return normalBullet[num].Pos; }
+
+	bool GetFlag(int num)const { return normalBullet[num].Flag; }
+
+	const int NormalBulletRadius = 12;
 
 private:
 
