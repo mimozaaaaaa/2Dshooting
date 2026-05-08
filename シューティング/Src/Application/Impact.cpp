@@ -6,6 +6,7 @@
 void Impact::Update()
 {
 	UpdateDamegeCoolTime();
+	UpdateHitCount();
 	for (int i = 0;i < 10;i++)
 	{
 		Enemy1PlayerCollision(player->GetPos(), enemy1->GetLeftTurretPos(i),i);
@@ -23,6 +24,9 @@ void Impact::Update()
 
 void Impact::Init()
 {
+	hitCount = 0;
+	playerHiCount = 4;
+	damegeCoolTime = 0;
 }
 
 void Impact::UpdateDamegeCoolTime()
@@ -57,6 +61,7 @@ void Impact::Enemy1LeftPlayerBulletCollision(Math::Vector2 bulletPos, Math::Vect
 		if (!bullet->GetFlag(bulletCount))return;
 		bullet->SetFlag(bulletCount, false);
 		enemy1->SetEnemy1LeftLife(enemyCount, enemy1->GetEnemy1LeftLife(enemyCount) - 1);
+		hitCount++;
 	}
 }
 
@@ -65,13 +70,18 @@ void Impact::Enemy1RightPlayerBulletCollision(Math::Vector2 bulletPos, Math::Vec
 	if (sqrtf(powf(bulletPos.x - enemyPos.x, 2) + powf(bulletPos.y - enemyPos.y, 2)) < 60)
 	{
 		if (enemy1->GetEnemy1RightLife(enemyCount) == 0)return;
-		if(!bullet->GetFlag(bulletCount))return;
+		if (!bullet->GetFlag(bulletCount))return;
 		bullet->SetFlag(bulletCount, false);
 		enemy1->SetEnemy1RightLife(enemyCount, enemy1->GetEnemy1RightLife(enemyCount) - 1);
-	}
+		hitCount++;
+	}	
 }
 
-void Impact::AllCollision(Player& player, Enemy1& enemy, Bullet& bullet)
-{
-
+void Impact::UpdateHitCount()
+{	
+	if (hitCount >= 10)
+	{
+		hitCount = 0;
+		playerHiCount--;
+	}
 }

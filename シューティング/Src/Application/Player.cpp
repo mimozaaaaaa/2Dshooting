@@ -66,6 +66,7 @@ void Player::PlayerMove()
 	if (LEFT)playerPos.x -= 7.0f + playerAcceleration;
 
 	PlayerKey();
+
 	if (time == 0)
 	{
 		if (SPACE)
@@ -73,12 +74,16 @@ void Player::PlayerMove()
 			SummonNormalBullet();
 			time = 5;
 		}
-		if(key('V') & 0x8000)
+		if (key('V') & 0x8000)
 		{
-			SummonHomingBullet();
-			time = 5;
+			if (homingFlag) 
+			{
+				SummonHomingBullet();
+				time = 5;
+			}
 		}
 	}
+
 	PlayerLimit();
 }
 

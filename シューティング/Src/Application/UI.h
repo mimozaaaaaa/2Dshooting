@@ -3,6 +3,7 @@
 #include"TextureManager.h"
 
 class Player;
+class Impact;
 
 struct UITex
 {
@@ -37,16 +38,20 @@ public:
 	void DrawBlank_SPD(int spd);
 
 	void UpdateBlank_HP();
-	void UpdateBlank_HIT();
+	void UpdateBlank_HIT(int hit);
 	void UpdateBlank_GRAZE();
 	void UpdateBlank_SPD();
 
+	void UpdateHitClip();
+
 	void SetPlayer(Player* _player) {player = _player; }
+	void SetImpact(Impact* _impact) { impact = _impact; }
 
 
 private:
 
 	Player *player;
+	Impact* impact;
 
 	UITex hp;
 	UITex hit;
@@ -55,6 +60,8 @@ private:
 
 	Math::Matrix blankMat[4][4];
 	KdTexture *blankTex;
+
+	float hitClip;
 
 };
 

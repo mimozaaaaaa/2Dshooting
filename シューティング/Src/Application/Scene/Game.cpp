@@ -34,4 +34,5 @@ void Game::Init()
 	player.SetBullet(&bullet);
 	impact.SetInstance(&player, &bullet, &enemy1);
 	enemy1.SetEffect(&effect);
+	ui.SetImpact(&impact);
 }
