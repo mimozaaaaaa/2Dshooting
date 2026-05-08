@@ -3,6 +3,8 @@
 #include"../TextureManager.h"
 #include"../Def.h"
 
+class Effect;
+
 struct Turret
 {
 	Math::Matrix Mat;
@@ -42,7 +44,12 @@ public:
 	bool GetEnemy1LeftFlag(int num)const { return LeftTurret[num].Flag; }
 	bool GetEnemy1RightFlag(int num)const { return RightTurret[num].Flag; }
 
+	void SetEffect(Effect* _effect) { effect = _effect; }
+
 private:
+	Effect *effect;
+
+
 	Turret LeftTurret[10];
 	Turret RightTurret[10];
 

@@ -15,7 +15,7 @@ public:
 
 	void UpdateDamegeCoolTime();
 
-	void Enemy1PlayerCollision(Math::Vector2 playerPos, Math::Vector2 enemyPos);
+	void Enemy1PlayerCollision(Math::Vector2 playerPos, Math::Vector2 enemyPos,int enemyCount);
 
 	void Enemy1LeftPlayerBulletCollision(Math::Vector2 bulletPos, Math::Vector2 enemyPos, int bulletCount, int enemyCount);
 	void Enemy1RightPlayerBulletCollision(Math::Vector2 bulletPos, Math::Vector2 enemyPos, int bulletCount, int enemyCount);

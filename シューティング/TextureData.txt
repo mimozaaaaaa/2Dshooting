@@ -7,3 +7,4 @@ SPD Texture/Game/UI/SPD.png
 Blank Texture/Game/UI/blank.png
 NormalBullet Texture/Game/Bullet/playerBullet.png
 Enemy1 Texture/Game/Enemy/turret.png
+EnemyBreak Texture/Game/Effect/enemyBreak.png

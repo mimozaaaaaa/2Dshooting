@@ -59,7 +59,7 @@ private:
 
 	Math::Matrix playerMat;
 
-	int playerSPD = 1;
+	int playerSPD = 3;
 
 	int normalBulletCount = 0;
 	int homingBulletCount = 0;
@@ -68,7 +68,15 @@ private:
 
 	int dameage = 0;
 
+	//フラグ
+	bool hitFlag = false;
+	bool grazeFlag = false;
 	bool reflectFlag = false;
 	bool homingFlag = false;
+
+//マジックナンバー対策
+	const int PlayerWidth = 166;
+	const int PlayerHeight = 193;
+	float playerAcceleration = 0;
 
 };

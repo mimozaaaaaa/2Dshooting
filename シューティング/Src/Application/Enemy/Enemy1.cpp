@@ -1,5 +1,7 @@
 #include"Enemy1.h"
 
+#include"../Effect.h"
+
 void Enemy1::Update()
 {
 	UpdateLife();
@@ -58,10 +60,12 @@ void Enemy1::UpdateLife()
 		if (LeftTurret[i].Life <= 0)
 		{
 			LeftTurret[i].Flag = false;
+			//effect->Spawn(LeftTurret[i].Pos,i);
 		}
 		if (RightTurret[i].Life <= 0)
 		{
 			RightTurret[i].Flag = false;
+			//effect->Spawn(RightTurret[i].Pos,i);
 		}
 	}
 }
@@ -76,8 +80,8 @@ void Enemy1::InitTurretPos()
 {
 	for (int i = 0;i < 10;i++)
 	{
-		RightTurret[i].Pos = { 400.0f, 600.0f + i * 600.0f };
-		LeftTurret[i].Pos = { -400.0f, 600.0f + i * 600.0f };
+		RightTurret[i].Pos = { -400.0f, 600.0f + i * 600.0f };
+		LeftTurret[i].Pos = { 400.0f, 600.0f + i * 600.0f };
 
 		RightTurret[i].Life = 2;
 		LeftTurret[i].Life = 2;

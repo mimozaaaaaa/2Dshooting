@@ -12,6 +12,7 @@
 #include"../UI.h"
 #include"../Enemy/Enemy1.h"
 #include"../Impact.h"
+#include"../Effect.h"
 
 class Game :public SceneBase
 {
@@ -31,4 +32,5 @@ private:
 	UI ui;
 	Enemy1 enemy1;
 	Impact impact;
+	Effect effect;
 };

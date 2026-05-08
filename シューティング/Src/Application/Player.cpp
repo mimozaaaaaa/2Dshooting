@@ -1,5 +1,8 @@
 #include"Player.h"
 
+#define WASD key('W') & 0x8000 || key('S') & 0x8000 || key('A') & 0x8000 || key('D') & 0x8000
+#define ARROW UP || DOWN || RIGHT || LEFT
+
 void Player::Update()
 {
 	PlayerMove();
@@ -48,15 +51,19 @@ void Player::DrawPlayer()
 
 void Player::PlayerMove()
 {
-	if (key('W') & 0x8000)playerPos.y += 7.0f;
-	if (key('A') & 0x8000)playerPos.x -= 7.0f;
-	if (key('S') & 0x8000)playerPos.y -= 7.0f;
-	if (key('D') & 0x8000)playerPos.x += 7.0f;
+	if(CONTROL)playerAcceleration = 3.0f;
+	else if(SHIFT)playerAcceleration = -4.0f;
+	else playerAcceleration = 0.0f;
 
-	if (UP)playerPos.y += 3.0f;
-	if (DOWN)playerPos.y -= 3.0f;
-	if (RIGHT)playerPos.x += 3.0f;
-	if (LEFT)playerPos.x -= 3.0f;
+	if (key('W') & 0x8000)playerPos.y += 7.0f + playerAcceleration;
+	if (key('A') & 0x8000)playerPos.x -= 7.0f + playerAcceleration;
+	if (key('S') & 0x8000)playerPos.y -= 7.0f + playerAcceleration;
+	if (key('D') & 0x8000)playerPos.x += 7.0f + playerAcceleration;
+
+	if (UP)playerPos.y += 7.0f + playerAcceleration;
+	if (DOWN)playerPos.y -= 7.0f + playerAcceleration;
+	if (RIGHT)playerPos.x += 7.0f + playerAcceleration;
+	if (LEFT)playerPos.x -= 7.0f + playerAcceleration;
 
 	PlayerKey();
 	if (time == 0)
@@ -86,29 +93,37 @@ void Player::PlayerLimit()
 void Player::PlayerKey()
 {
 
-	if (key('W') & 0x8000)
+	if (WASD || ARROW)
 	{
-		if (UP)playerSPD = 0;
-		if (DOWN)playerSPD = 2;
+		if (playerAcceleration > 0)
+		{
+			playerSPD = 0;
+
+		}
+		else if (playerAcceleration < 0)
+		{
+			playerSPD = 2;
+		}
+		else
+		{
+			playerSPD = 1;
+		}
 	}
-	else
-	{
-		playerSPD = 3;
-	}
-		
+	
+	else playerSPD = 3;
 }
 
 void Player::SummonNormalBullet()
 {
 	bullet->NormalBulletSpawn(playerPos, normalBulletCount);
 	normalBulletCount++;
-	if (normalBulletCount > 100)normalBulletCount = 0;
+	if (normalBulletCount >= 100)normalBulletCount = 0;
 }
 
 void Player::SummonHomingBullet()
 {
 	bullet->HomingBulletSpawn(playerPos, homingBulletCount);
 	homingBulletCount++;
-	if (homingBulletCount > 100)homingBulletCount = 0;
+	if (homingBulletCount >= 100)homingBulletCount = 0;
 }
 

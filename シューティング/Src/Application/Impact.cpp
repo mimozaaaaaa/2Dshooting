@@ -8,8 +8,8 @@ void Impact::Update()
 	UpdateDamegeCoolTime();
 	for (int i = 0;i < 10;i++)
 	{
-		Enemy1PlayerCollision(player->GetPos(), enemy1->GetLeftTurretPos(i));
-		Enemy1PlayerCollision(player->GetPos(), enemy1->GetRightTurretPos(i));
+		Enemy1PlayerCollision(player->GetPos(), enemy1->GetLeftTurretPos(i),i);
+		Enemy1PlayerCollision(player->GetPos(), enemy1->GetRightTurretPos(i),i);
 	}
 	for(int i = 0;i < 10;i++)
 	{
@@ -34,9 +34,11 @@ void Impact::UpdateDamegeCoolTime()
 	}
 }
 
-void Impact::Enemy1PlayerCollision(Math::Vector2 playerPos, Math::Vector2 enemyPos)
+void Impact::Enemy1PlayerCollision(Math::Vector2 playerPos, Math::Vector2 enemyPos, int enemyCount)
 {
 	if (player->GetPlayerDamege() == 4)return;
+	if (!enemy1->GetEnemy1LeftFlag(enemyCount))return;
+	if (!enemy1->GetEnemy1RightFlag(enemyCount))return;
 	if (sqrtf(powf(playerPos.x - enemyPos.x, 2) + powf(playerPos.y - enemyPos.y, 2)) < 60)
 	{
 		if (damegeCoolTime == 0)

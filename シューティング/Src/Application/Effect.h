@@ -10,9 +10,6 @@ public:
 	void Init();
 	void Draw();
 
-//Update//
-
-
 
 private:
 
